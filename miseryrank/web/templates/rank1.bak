@@ -1,0 +1,79 @@
+{% extends 'starter.html' %}
+{% block content %}
+    <div class="demo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-8">
+                    <div class="tab" role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            {% for block in blocks %}
+                                <li role="presentation active"><a href="#{{ block.name }}" role="tab"
+                                                                  data-toggle="tab">{{ block.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content tabs">
+                            {% for block in blocks %}
+                                <div role="tabpanel" class="tab-pane fade in active" id="{{ block.name }}">
+                                    <h3>{{ block.name }}</h3>
+                                    <div class="row">
+                                        <div class="col-md-10 pull-left">
+                                            <ul>
+                                                {% for hot in block.hots %}
+                                                    <li><a href="{{ hot.url }}">{{ hot.title }}</a></li>
+                                                    {% if hot.content %}
+                                                        {#                                                <p>{{ hot.content|truncatewords:5 }}</p>#}
+                                                    {% endif %}
+                                                    <div class="row">
+                                                        <a href="" id="{{ hot.title }}">
+                                                            <div class="pull-right">
+                                                                <span class="icon-wrap"><i class="fa fa-reorder }}"></i></span>
+                                                                评论
+                                                            </div>
+                                                        </a>
+                                                        <a href="">
+                                                            <div class="pull-right">
+                                                                <span class="icon-wrap"><i
+                                                                        class="fa fa-bookmark }}"></i></span>
+                                                                收藏&nbsp&nbsp&nbsp&nbsp
+                                                            </div>
+                                                        </a>
+
+                                                    </div>
+
+                                                    <div class="row hide" id="{{ hot.title }}">
+
+                                                        <div class="col-lg-6">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="在评论区留下你的想法">
+                                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">Go!</button>
+                                                  </span>
+                                                            </div><!-- /input-group -->
+                                                        </div><!-- /.col-lg-6 -->
+                                                    </div><!-- /.row -->
+
+
+
+
+
+
+                                                    <HR align=center width=700 color=#987cb9 SIZE=0>
+                                                {% endfor %}
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
